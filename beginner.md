@@ -20,4 +20,23 @@
     -   wir markieren eine beliebige Function
     -   und mit rechtsklick machen wir einen Codesnap
         -   Codesnap macht ein gut lesbares Bild von einer Function / Code
-  
+
+## Step 5
+
+    -   wir initialisieren den intro Ordner
+    -   und ändern den scrpt eintrag
+.
+
+    <code>
+        "scripts": {
+        "compile": "tsc -p ./" ,
+        "watch": "tsc -watch -p ./" ,
+        "start": "lite-server"
+        }
+
+## Step 6
+
+    -   Im Ordner Intro führen wir den Code aus:
+.
+
+        >> tsc -init
