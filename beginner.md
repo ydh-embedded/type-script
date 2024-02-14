@@ -40,3 +40,11 @@
 .
 
         >> tsc -init
+
+## Step 7
+
+    -   in tsconfig Zeilen ändern
+    -   "target": "es2021",
+    -   "lib": ["es5" , "dom"],
+
+##Step 8 
