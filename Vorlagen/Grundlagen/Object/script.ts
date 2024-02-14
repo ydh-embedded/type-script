@@ -20,7 +20,7 @@ let USER2 = {
 };
 
 
-function  printUSER(USER:{name:string;age:number;courses:string[]}){
+function printUSER(USER:{name:string;age:number;courses:string[]}){
     console.log(USER.name);
     console.log(USER.age);
     console.log(USER.courses);
