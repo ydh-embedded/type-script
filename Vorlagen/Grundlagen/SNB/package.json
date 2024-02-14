@@ -1,19 +1,17 @@
 {
-  "name": "intro",
-  "version": "1.0.0",
-  "description": "",
-  "main": "script.js",
-  "scripts": {
-    "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./",
-    "start": "lite-server"
-  },
-  "keywords": [
-    "typescript"
-  ],
-  "author": "DHE",
-  "license": "MIT",
-  "dependencies": {
-    "typescript": "^5.3.3"
+    "name":       "intro"         ,
+    "version":    "1.0.0"         ,
+    "description": ""             ,
+    "main":       "script.js"     ,
+    "scripts": {
+      "compile":  "tsc -p ./"         ,
+      "watch":    "tsc -watch -p ./"  ,
+      "start":    "lite-server"       ,
+      "lite-server": "lite-server"
+    } ,
+  
+    "keywords"    : ["typescript"],
+    "author"      : "DHE"         ,
+    "license"     : "MIT"         ,
+    "dependencies": { "typescript": "^5.3.3" }
   }
-}
