@@ -1,4 +1,8 @@
-## Setp 1
+# Beginner
+
+  [TypeScript](https://www.typescriptlang.org/)
+
+## Step 1
 
         >> npm install --save-dev typescript
 
