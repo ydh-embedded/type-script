@@ -13,7 +13,7 @@ const p1 = new Point2D( 0 , 0 );
 const p2 = new Point2D( 1 , 1 );
 
 class Point3D extends Point2D {
-    zPOS: number ;
+    protected zPOS: number ;                                                    // Wir PROTECTED die zPOS
 
     constructor(xPOSInput:number , yPOSInput:number , zPOSInput:number){
         super(xPOSInput , yPOSInput) ;
@@ -22,5 +22,5 @@ class Point3D extends Point2D {
 }
 
 const p3 = new Point3D (  2 , 2 , 2 );
-
-console.log(p3);
+p3.zPOS = 5 ;                                                                   // Wir können im nachhinein den WERT nicht auf 5 ändern,
+console.log(p3);                                                                //  da sich die zPOS im PROTECTED liegt
