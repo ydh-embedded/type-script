@@ -37,10 +37,10 @@ class Calculator {
 
 }
 
-const CalcuLATOR = new Calculator();
+const CalcuLATOR     = new Calculator();
 
-const buttons = document.querySelectorAll <HTMLButtonElement> ('button');
-const output = document.querySelector    <HTMLDivElement>    ('[data-current-output]');
+const buttons        = document.querySelectorAll <HTMLButtonElement> ('button');
+const output         = document.querySelector    <HTMLDivElement>    ('[data-current-output]');
 const previousOutput = document.querySelector    <HTMLDivElement>    ('[data-previous-output]');
 
 if (!output || !previousOutput) {
@@ -48,25 +48,26 @@ if (!output || !previousOutput) {
 } else {
     buttons.forEach(button => {
         button.addEventListener('click', () => {
-            const buttonId = button.id;
+            const buttonID   = button.id;
+            const buttonNAME = button.name;
 
-            if (buttonId === 'clear') {
+            if (buttonID === 'clear') {
                 CalcuLATOR.clear();
                 output.textContent = '';
-                previousOutput.textContent = '';
-            } else if (buttonId === 'delete') {
+                // previousOutput.textContent = '';
+            } else if (buttonID === 'delete') {
                 CalcuLATOR.delete();
                 output.textContent = CalcuLATOR.getCurrentOutput();
-            } else if (buttonId === 'equal') {
+            } else if (buttonID === 'equal') {
                 CalcuLATOR.calculate();
                 output.textContent = CalcuLATOR.getCurrentOutput();
-                previousOutput.textContent = '';
+                // previousOutput.textContent = '';
             } else {
-                CalcuLATOR.append(buttonId);
+                CalcuLATOR.append(buttonNAME);
                 output.textContent = CalcuLATOR.getCurrentOutput();
             }
 
-            console.log(`Eingabe: ${buttonId}`);
+            console.log(`Eingabe: ${buttonNAME}`);
         });
     });
 }
