@@ -35,6 +35,22 @@ class Calculator {
         return this.previousOutput;
     }
 
+    public division() {
+        Quotientenwert(buttonNAME , output);
+    }
+
+    public multiplication() {
+        Produktwert(buttonNAME , output);
+    }
+
+    public addition() {
+        Summenwert(buttonNAME , output);
+    }
+
+    public substraction() {
+        Differenzwert(buttonNAME , output);
+    }
+
 }
 
 const CalcuLATOR     = new Calculator();
@@ -60,6 +76,22 @@ if (!output || !previousOutput) {
                 output.textContent = CalcuLATOR.getCurrentOutput();
             } else if (buttonID === 'equal') {
                 CalcuLATOR.calculate();
+                output.textContent = CalcuLATOR.getCurrentOutput();
+                // previousOutput.textContent = '';
+            } else if (buttonID === 'division') {
+                CalcuLATOR.division();
+                output.textContent = CalcuLATOR.getCurrentOutput();
+                // previousOutput.textContent = '';
+            } else if (buttonID === 'multiplication') {
+                CalcuLATOR.multiplication();
+                output.textContent = CalcuLATOR.getCurrentOutput();
+                // previousOutput.textContent = '';
+            } else if (buttonID === 'addition') {
+                CalcuLATOR.addition();
+                output.textContent = CalcuLATOR.getCurrentOutput();
+                // previousOutput.textContent = '';
+            } else if (buttonID === 'substraction') {
+                CalcuLATOR.substraction();
                 output.textContent = CalcuLATOR.getCurrentOutput();
                 // previousOutput.textContent = '';
             } else {
