@@ -1,4 +1,4 @@
-const calculator = {
+let calculator = {
 
             display:
             {
@@ -15,8 +15,8 @@ const calculator = {
                 equals:     document.querySelector('[data-equals]'),
             }   ,
 
-            operand1: '',
-            operand2: '',
+            operand1: '-1',
+            operand2: '-1',
             operator: undefined,
             operatorClicked: false,
 };

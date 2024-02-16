@@ -1,5 +1,3 @@
-import { Calculator } from './lib/js/calculator';
-
 const calculator = new Calculator();
 
 const buttons = document.querySelectorAll<HTMLButtonElement>('button');
