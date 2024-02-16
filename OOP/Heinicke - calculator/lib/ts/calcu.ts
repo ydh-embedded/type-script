@@ -36,19 +36,19 @@ class Calculator {
     }
 
     public division() {
-        Quotientenwert(buttonNAME , output);
+        Quotientenwert(2 ,1);
     }
 
     public multiplication() {
-        Produktwert(buttonNAME , output);
+        Produktwert(2 , 2);
     }
 
     public addition() {
-        Summenwert(buttonNAME , output);
+        Summenwert(5 , 5);
     }
 
     public substraction() {
-        Differenzwert(buttonNAME , output);
+        Differenzwert(10 , 5);
     }
 
 }
