@@ -1,0 +1,12 @@
+.vscode/
+
+node_modules
+
+dist/
+out/
+build/
+
+
+*.js
+*.js.map
+package-lock.json
