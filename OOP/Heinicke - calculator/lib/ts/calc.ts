@@ -25,7 +25,6 @@ function Summenwert(Summant:number, Summand:number):number{
                 
 //#endregion
 //#region        Substraktion
-
 function Differenzwert(Minuend:number, Subtrahend:number):number{
             return Minuend - Subtrahend;
 }

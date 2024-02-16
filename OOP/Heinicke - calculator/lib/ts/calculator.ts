@@ -68,4 +68,6 @@ let calculator = {
             if (calculator.operatorClicked) {
                 calculator.display.currentOutput.textContent = `${calculator.operand1} ${calculator.operator} ${calculator.operand2}`;
             } else {
-                calculator.display.currentOutput.textContent = `${calculator.operand1} ${calculator
+                calculator.display.currentOutput.textContent = `${calculator.operand1} ${calculator.display}`;
+            }
+        }

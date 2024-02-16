@@ -1,8 +1,8 @@
-const calculator = new Calculator();
+//const calculator = new Calculator();
 
-const buttons = document.querySelectorAll<HTMLButtonElement>('button');
-const output = document.querySelector<HTMLDivElement>('[data-current-output]');
-const previousOutput = document.querySelector<HTMLDivElement>('[data-previous-output]');
+const buttons           = document.querySelectorAll <HTMLButtonElement> ('button')                  ;
+const output            = document.querySelector    <HTMLDivElement>    ('[data-current-output]')   ;
+const previousOutput    = document.querySelector    <HTMLDivElement>    ('[data-previous-output]')  ;
 
 buttons.forEach(button => {
     button.addEventListener('click', () => {
