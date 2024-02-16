@@ -1,73 +1,37 @@
-let calculator = {
+class Calculator {
 
-            display:
-            {
-                previousOutput: document.querySelector('[data-previous-output]'),
-                currentOutput:  document.querySelector('[data-current-output]'),
-            }   ,
 
-            buttons:
-            {
-                clear:      document.querySelector('[data-clear]'),
-                delete:     document.querySelector('[data-delete]'),
-                operators:  document.querySelectorAll('[data-operator]'),
-                numbers:    document.querySelectorAll('[data-number]'),
-                equals:     document.querySelector('[data-equals]'),
-            }   ,
+    private currentOutput:string;
+    private previousOutput:string;
 
-            operand1: '-1',
-            operand2: '-1',
-            operator: undefined,
-            operatorClicked: false,
-};
+    constructor() {
+        this.currentOutput = '';
+        this.previousOutput = '';
+    }
 
-        calculator.buttons.clear.addEventListener('click', () => {
-            calculator.operand1 = '';
-            calculator.operand2 = '';
-            calculator.operator = undefined;
-            calculator.operatorClicked = false;
-            updateDisplay();
-        });
+    public clear():void {
+        this.currentOutput = '';
+        this.previousOutput = '';
+    }
 
-        calculator.buttons.delete.addEventListener('click', () => {
-            calculator.operand2 = calculator.operand2.toString().slice(0, -1);
-            updateDisplay();
-        });
+    public delete():void {
+        this.currentOutput = this.currentOutput.slice(0, -1);
+    }
 
-        calculator.buttons.operators.forEach(operatorButton => {
-            operatorButton.addEventListener('click', () => {
-                calculator.operator = operatorButton.textContent;
-                calculator.operatorClicked = true;
-                updateDisplay();
-            });
-        });
+    public append(value: string):void {
+        this.currentOutput += value;
+    }
 
-        calculator.buttons.numbers.forEach(numberButton => {
-            numberButton.addEventListener('click', () => {
-                if (calculator.operatorClicked) {
-                    calculator.operand2 += numberButton.textContent;
-                } else {
-                    calculator.operand1 += numberButton.textContent;
-                }
-                updateDisplay();
-            });
-        });
+    public calculate():void {
+        this.previousOutput = this.currentOutput;
+        this.currentOutput = eval(this.currentOutput).toString();
+    }
 
-        calculator.buttons.equals.addEventListener('click', () => {
-            const result = calc(calculator.operand1, calculator.operand2, calculator.operator);
-            calculator.display.previousOutput.textContent = `${calculator.operand1} ${calculator.operator} ${calculator.operand2} =`;
-            calculator.display.currentOutput.textContent = result;
-            calculator.operand1 = '';
-            calculator.operand2 = '';
-            calculator.operator = undefined;
-            calculator.operatorClicked = false;
-        });
+    public getCurrentOutput():string {
+        return this.currentOutput;
+    }
 
-        
-        function updateDisplay() {
-            if (calculator.operatorClicked) {
-                calculator.display.currentOutput.textContent = `${calculator.operand1} ${calculator.operator} ${calculator.operand2}`;
-            } else {
-                calculator.display.currentOutput.textContent = `${calculator.operand1} ${calculator.display}`;
-            }
-        }
+    public getPreviousOutput():string {
+        return this.previousOutput;
+    }
+}
