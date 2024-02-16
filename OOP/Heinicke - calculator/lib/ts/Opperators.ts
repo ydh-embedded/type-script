@@ -1,14 +1,24 @@
-export class OPPERATORS {
-    protected _quotientenwert   :   number ;
-    protected _dividend         :   number ;
-    protected _divisor          :   number ;
 
-    constructor(quotientenwert:number,dividend:number,divisor:number){
-        this._quotientenwert    = quotientenwert ;
-        this._dividend          = dividend ;
-        this._divisor           = divisor ;
+
+const EingabeFeld = document.querySelectorAll('button');
+
+EingabeFeld.forEach((button) => {
+    button.addEventListener('click', () => {
+
+    const dNumber = parseFloat(button.dataset.number);
+
+    if (!isNaN(dNumber)) {
+        const result = Quotientenwert(dNumber);
+        console.log(`Quotient: ${result}`);
+    } else {
+        console.log('Invalid input values');
     }
+  });
+});
 
 
-}
 
+// Add event listeners to the buttons
+buttons.forEach(button => {
+    button.addEventListener('click', handleButtonClick);
+});

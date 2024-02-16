@@ -13,11 +13,11 @@ let currentOperand: string = '';
 // Function to handle button clicks
 function handleButtonClick(event: Event) {
     const button = event.target as HTMLButtonElement;
-    const operation = button.dataset.operation;
-    const number = button.dataset.number;
-    const deleteButton = button.dataset.delete;
-    const clearButton = button.dataset.clear;
-    const equalsButton = button.dataset.equals;
+    const operation = ['button.dataset.operation'];
+    const number = ['button.dataset.number'];
+    const deleteButton = ['button.dataset.delete'];
+    const clearButton = ['button.dataset.clear'];
+    const equalsButton = ['button.dataset.equals'];
 
     if (operation) {
         handleOperation(operation);

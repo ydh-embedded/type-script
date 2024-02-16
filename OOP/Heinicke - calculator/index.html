@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="lib/css/style.css">
     <link rel="stylesheet" href="lib/css/calc.css">
     <script type="module" src="./lib/js/script.js"></script>
+    <script type="module" src="./lib/js/calc.js"></script>
 
     <!-- <script src="controller.js" defer></script> -->
 </head>
@@ -27,24 +28,24 @@
                 <div data-current-output class="current-output"></div>
             </div>
 
-            <button data-clear      class="double-span"             >Clear</button>
-            <button data-delete     class="othersym"                >&#8656;</button>
-            <button data-operator   class="operation"               >/</button>
-            <button data-number     class="othersym"                >1</button>
-            <button data-number     class="othersym"                >2</button>
-            <button data-number     class="othersym"                >3</button>
-            <button data-operator   class="operation"               >*</button>
-            <button data-number     class="othersym"                >4</button>
-            <button data-number     class="othersym"                >5</button>
-            <button data-number     class="othersym"                >6</button>
-            <button data-operator   class="operation"               >+</button>
-            <button data-number     class="othersym"                >7</button>
-            <button data-number     class="othersym"                >8</button>
-            <button data-number     class="othersym"                >9</button>
-            <button data-operator   class="operation"               >-</button>
-            <button data-number     class="othersym"                >.</button>
-            <button data-number     class="othersym"                >0</button>
-            <button data-equals     class="double-span" id="equal"  >=</button>
+            <button data-clear      class="double-span" id="clear"          >Clear</button>
+            <button data-delete     class="othersym"    id="delete"         >&#8656;</button>
+            <button data-operator   class="operation"   id="division"       >/</button>
+            <button data-number     class="othersym"    id="one"            >1</button>
+            <button data-number     class="othersym"    id="two"            >2</button>
+            <button data-number     class="othersym"    id="three"          >3</button>
+            <button data-operator   class="operation"   id="multiplication" >*</button>
+            <button data-number     class="othersym"    id="four"           >4</button>
+            <button data-number     class="othersym"    id="five"           >5</button>
+            <button data-number     class="othersym"    id="six"            >6</button>
+            <button data-operator   class="operation"   id="addition"       >+</button>
+            <button data-number     class="othersym"    id="seven"          >7</button>
+            <button data-number     class="othersym"    id="eight"          >8</button>
+            <button data-number     class="othersym"    id="nine"           >9</button>
+            <button data-operator   class="operation"   id="substraction"   >-</button>
+            <button data-number     class="othersym"    id="point"          >.</button>
+            <button data-number     class="othersym"    id="cero"           >0</button>
+            <button data-equals     class="double-span" id="equal"          >=</button>
 
         </div>
     </div>
