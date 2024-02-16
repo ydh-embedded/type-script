@@ -39,3 +39,19 @@ wir erstellen einen Calculator mit typescript
     -   Die Subtraktion ist der Vorgang des Abziehens einer Zahl von einer anderen Zahl.
 
     -   Minuend − Subtrahend = Differenzwert
+
+## querySelector
+
+ export class QsOpperator {
+
+    // Query selectors für die Opperatoren
+    
+    const clearButton           = querySelector<HTMLButtonElement>('[data-clear]');
+    const deleteButton          = querySelector<HTMLButtonElement>('[data-delete]');
+    const divisionButton        = querySelector<HTMLButtonElement>('[data-operator="division"]');
+    const multiplicationButton  = querySelector<HTMLButtonElement>('[data-operator="multiplication"]');
+    const additionButton        = querySelector<HTMLButtonElement>('[data-operator="addition"]');
+    const substractionButton    = querySelector<HTMLButtonElement>('[data-operator="substraction"]');
+    const equalsButton          = querySelector<HTMLButtonElement>('[data-equals]');
+    
+}

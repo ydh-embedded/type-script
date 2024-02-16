@@ -1,6 +1,3 @@
-
-
-
 //#region        Division
 function Quotientenwert(Dividend:number, Divisor:number):number{
             return Dividend / Divisor;
@@ -28,6 +25,7 @@ function Summenwert(Summant:number, Summand:number):number{
                 
 //#endregion
 //#region        Substraktion
+
 function Differenzwert(Minuend:number, Subtrahend:number):number{
             return Minuend - Subtrahend;
 }
