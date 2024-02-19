@@ -11,6 +11,8 @@
     -   um im Browser dev Tools bess nutzen zu könnnen
     -   installieren wir lite-server
     
+        >> npm install -g lite-server
+        >> npx tsc
         >> npm lite-server
 
 ## Step 3

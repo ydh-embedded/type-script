@@ -59,6 +59,9 @@ const buttons        = document.querySelectorAll <HTMLButtonElement> ('button');
 const output         = document.querySelector    <HTMLDivElement>    ('[data-current-output]');
 const previousOutput = document.querySelector    <HTMLDivElement>    ('[data-previous-output]');
 
+const previous       = '';
+const current        = '';
+
 if (!output || !previousOutput) {
     console.error('Ausgabe nicht definiert');
 } else {
