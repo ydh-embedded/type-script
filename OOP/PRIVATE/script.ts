@@ -1,6 +1,6 @@
 class Point2D {                 // Eigenschaften ohne weitere Angaben sind immer puplic
-    xPOS: number;
-    yPOS: number;
+    private xPOS: number;
+    private yPOS: number;
 
     constructor(xPOSInput:number , yPOSInput:number){
         this.xPOS = xPOSInput ;
@@ -13,7 +13,7 @@ const p1 = new Point2D( 0 , 0 );
 const p2 = new Point2D( 1 , 1 );
 
 class Point3D extends Point2D {
-    zPOS: number ;
+    private zPOS: number ;
 
     constructor(xPOSInput:number , yPOSInput:number , zPOSInput:number){
         super(xPOSInput , yPOSInput) ;
