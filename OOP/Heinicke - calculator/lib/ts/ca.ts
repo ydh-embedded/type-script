@@ -3,7 +3,7 @@ class Calculator {
     private currentOutput:  string;
     private previousOutput: string;
 /*  private inputs:string[] = [];    */
-    private operation:      string;
+    public operation:      string;
 
     constructor() {
       this.currentOutput = 'current-output';
