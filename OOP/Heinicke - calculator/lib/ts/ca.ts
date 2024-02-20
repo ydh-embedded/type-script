@@ -1,8 +1,8 @@
 class Calculator {
 
-    private currentOutput:string;
-    private previousOutput:string;
-    private inputs:string[] = [];
+    private currentOutput: string;
+    private previousOutput: string;
+/*  private inputs:string[] = [];    */
     private operation: string;
 
     constructor() {
@@ -11,7 +11,19 @@ class Calculator {
       this.operation = '';
     }
 
+  
+    public delete():void {
 
+        this.currentOutput = this.currentOutput.slice(0, -1);
+  
+      }
+    
+      public append(value: string):void {
+        if (this.isValidInput(value)) {
+          this.currentOutput += value;
+        }
+      }
+    
 
   
     private performOperation                                                                                    // NOTE: case-Schleife für die Rechen-Operationen
@@ -37,19 +49,7 @@ class Calculator {
       this.previousOutput = '';
 
     }
-  
-    public delete():void {
 
-      this.currentOutput = this.currentOutput.slice(0, -1);
-
-    }
-  
-    public append(value: string):void {
-      if (this.isValidInput(value)) {
-        this.currentOutput += value;
-      }
-    }
-  
     public calculate():void {
       const firstNUMBER = parseFloat(this.previousOutput);
       const secondNUMBER = parseFloat(this.currentOutput);
