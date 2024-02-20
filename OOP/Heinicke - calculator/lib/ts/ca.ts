@@ -118,13 +118,13 @@ class Calculator {
 
       } else if (buttonId === 'delete') {
         calculator.delete();
-        output.textContent = calculator.getCurrentOutput() as string;
+        output.textContent = calculator.getCurrentOutput();
 
       } else if (buttonId.startsWith('oPERATOR')) {
-        calculator.operation = buttonId.slice(8) as string; 
+        calculator.operation = buttonId.slice(8); 
         calculator.addNumber(buttonText);
         calculator.calculate();
-        output.textContent = calculator.getCurrentOutput() as string ;
+        output.textContent = calculator.getCurrentOutput();
 
       } else if (buttonId === 'equal') {
         calculator.calculate();
