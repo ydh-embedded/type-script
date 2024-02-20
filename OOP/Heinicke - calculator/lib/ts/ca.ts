@@ -29,18 +29,19 @@ class Calculator {
     
 
   
+      
     private performOperation                                                                                    // NOTE: case-Schleife für die Rechen-Operationen
     (oPERATOR:string, firstNUMBER:number, secondNUMBER:number):number
      {
       switch (oPERATOR) {
         case 'addition':
-          return firstNUMBER + secondNUMBER;
+          return firstNUMBER + secondNUMBER;                                                                    // Summand + Summand = Summenwert
         case 'subtraction':
-          return firstNUMBER - secondNUMBER;
+          return firstNUMBER - secondNUMBER;                                                                    // Minuend − Subtrahend = Differenzwert
         case 'multiplication':
-          return firstNUMBER * secondNUMBER;
+          return firstNUMBER * secondNUMBER;                                                                    // Multiplikator x Multiplikand = Produktwert
         case 'division':
-          return firstNUMBER / secondNUMBER;
+          return firstNUMBER / secondNUMBER;                                                                    // Dividend / Divisor = Quotientenwert
         default:
           throw new Error(`Keine gültige Eingabe: ${oPERATOR}`);
       }

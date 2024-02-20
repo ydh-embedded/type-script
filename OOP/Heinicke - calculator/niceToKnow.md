@@ -13,3 +13,5 @@
         dass ein String zurück gegeben wird
     -   wenn **'CalcuLATOR.getPreviousOutput()'** Null ist,
         dann weisen wir ein leere Zeichenkette zu 
+- BUG:**' Property 'operation' is private and only accessible within class 'Calculator''**
+    -   operation als public definiert
