@@ -1,4 +1,4 @@
-class Calculator {
+class CalculatorOLD {
 
 
     private currentOutput:string;
@@ -25,10 +25,43 @@ class Calculator {
         this.currentOutput = this.inputs.join('');
     }
 
-
+    
     public calculate():void {
-        this.previousOutput = this.currentOutput;
-        this.currentOutput = eval(this.currentOutput).toString();
+        const firstNumber = parseFloat(this.previousOutput);
+        const secondNumber = parseFloat(this.currentOutput);
+
+        if (isNaN(firstNumber) || isNaN(secondNumber)) {
+            return;
+        }
+
+        let result;
+
+        switch (this.operation) {
+            case 'addition':
+                result = firstNumber + secondNumber;
+                break;
+            case 'substraction':
+                result = firstNumber - secondNumber;
+                break;
+            case 'multiplication':
+                result = firstNumber * secondNumber;
+                break;
+            case 'division':
+                result = firstNumber / secondNumber;
+                break;
+        }
+
+        this.currentOutput = result.toString();
+        this.operation = '';
+        this.nUMBERS = [];
+    }
+
+    public addNumber(number: string):void {
+        if (this.operation === '') {
+            this.currentOutput = this.currentOutput + number;
+        } else {
+            this.numbers.push(number);
+        }
     }
 
     public getCurrentOutput():string {
@@ -89,6 +122,8 @@ class Calculator {
     }
 
 
+
+
 }
 
 const CalcuLATOR     = new Calculator();
@@ -100,9 +135,18 @@ const previousOutput = document.querySelector    <HTMLDivElement>    ('[data-pre
 const previous       = '';
 const current        = '';
 
+
+function updateDisplay() {
+    const currentOutput = document.querySelector('.current-output');
+    const previousOutput = document.querySelector('.previous-output');
+
+    currentOutput.textContent = CalcuLATOR.getCurrentOutput();
+    previousOutput.textContent = CalcuLATOR.getPreviousOutput();
+}
+
 if (!output || !previousOutput) {
     console.error('Ausgabe nicht definiert');
-    console.time('fetsching data');
+    console.time('fetsching data');             //console-Ninja nicht compatibel
 
     
 } else {
@@ -110,43 +154,47 @@ if (!output || !previousOutput) {
         button.addEventListener('click', () => {
             const buttonID   = button.id;
             const buttonNAME = button.name;
+            const nUMBER     = button.textContent ;
 
             if (buttonID === 'clear') {
                 CalcuLATOR.clear();
                 output.textContent = '';
-                // previousOutput.textContent = '';
+            
             } else if (buttonID === 'delete') {
                 CalcuLATOR.delete();
                 output.textContent = CalcuLATOR.getCurrentOutput();
-            } else if (buttonID === 'equal') {
-                CalcuLATOR.calculate();
-                output.textContent = CalcuLATOR.getCurrentOutput();
-                // previousOutput.textContent = '';
+
+
             } else if (buttonID === 'division') {
                 CalcuLATOR.division();
                 output.textContent = CalcuLATOR.getCurrentOutput();
-                // previousOutput.textContent = '';
+                // 
             } else if (buttonID === 'multiplication') {
                 CalcuLATOR.multiplication();
                 output.textContent = CalcuLATOR.getCurrentOutput();
-                // previousOutput.textContent = '';
+                // 
             } else if (buttonID === 'addition') {
                 CalcuLATOR.addition();
                 output.textContent = CalcuLATOR.getCurrentOutput();
-                // previousOutput.textContent = '';
+                // 
             } else if (buttonID === 'substraction') {
                 CalcuLATOR.substraction();
                 output.textContent = CalcuLATOR.getCurrentOutput();
-                // previousOutput.textContent = '';
+                // 
+                        
+            } else if (buttonID === 'equal') {
+                CalcuLATOR.calculate();
+                output.textContent = CalcuLATOR.getCurrentOutput();
+            
             } else {
                 if (buttonNAME){
                     CalcuLATOR.append(buttonNAME);
                     output.textContent = CalcuLATOR.getCurrentOutput();
                 }
             }
-
+            updateDisplay();
             console.log(`Eingabe: ${buttonNAME}`);
-            console.timeEnd('fetsching data');
+            console.timeEnd('fetsching data');             //console-Ninja nicht compatibel
         });
     });
 }
