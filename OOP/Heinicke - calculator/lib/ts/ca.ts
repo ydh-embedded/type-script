@@ -1,9 +1,9 @@
 class Calculator {
 
-    private currentOutput: string;
+    private currentOutput:  string;
     private previousOutput: string;
 /*  private inputs:string[] = [];    */
-    private operation: string;
+    private operation:      string;
 
     constructor() {
       this.currentOutput = 'current-output';
@@ -11,6 +11,9 @@ class Calculator {
       this.operation = '';
     }
 
+    public getOperation():string {
+        return this.operation;
+    }
   
     public delete():void {
 
@@ -121,12 +124,15 @@ class Calculator {
 
       } else if (buttonId.startsWith('oPERATOR')) {
         calculator.operation = buttonId.slice(8); 
-        calculator.addNumber(buttonText);
+        calculator.addNumber(buttonText as string);
         calculator.calculate();
         output.textContent = calculator.getCurrentOutput();
 
       } else if (buttonId === 'equal') {
         calculator.calculate();
+      } else {
+        calculator.append(buttonText as string);
+        output.textContent = calculator.getCurrentOutput()?.toString() || '';
       }
     })
 })
