@@ -3,6 +3,8 @@ class Calculator {
 
     private currentOutput:string;
     private previousOutput:string;
+    private inputs:         string[] = [];
+
 
     constructor() {
         this.currentOutput = '';
@@ -18,9 +20,11 @@ class Calculator {
         this.currentOutput = this.currentOutput.slice(0, -1);
     }
 
-    public append(value: string):void {
-        this.currentOutput += value;
+    public append(value: string): void {
+        this.inputs.push(value);
+        this.currentOutput = this.inputs.join('');
     }
+
 
     public calculate():void {
         this.previousOutput = this.currentOutput;
@@ -35,21 +39,55 @@ class Calculator {
         return this.previousOutput;
     }
 
-    public division() {
-        Quotientenwert(2 ,1);
+
+    public division():void {
+
+        const Dividend = parseFloat(this.inputs[0]);
+        const Divisor = parseFloat(this.inputs[1]);
+
+        const Quotientenwert = Dividend / Divisor;
+
+        this.previousOutput = this.currentOutput;
+        this.currentOutput = Quotientenwert.toString();
+        this.inputs = [];
     }
 
-    public multiplication() {
-        Produktwert(2 , 2);
+    public multiplication():void {
+
+        const Multiplikand = parseFloat(this.inputs[0]);
+        const Multiplikator = parseFloat(this.inputs[1]);
+
+        const Produktwert = Multiplikand * Multiplikator;
+
+        this.previousOutput = this.currentOutput;
+        this.currentOutput = Produktwert.toString();
+        this.inputs = [];
     }
 
-    public addition() {
-        Summenwert(5 , 5);
+    public addition():void {
+
+        const summand1 = parseFloat(this.inputs[0]);
+        const summand2 = parseFloat(this.inputs[1]);
+
+        const Summenwert = summand1 + summand2;
+
+        this.previousOutput = this.currentOutput;
+        this.currentOutput = Summenwert.toString();
+        this.inputs = [];
     }
 
-    public substraction() {
-        Differenzwert(10 , 5);
+    public substraction():void {
+
+        const Minuend   = parseFloat(this.inputs[0]);
+        const Subtrahend = parseFloat(this.inputs[1]);
+
+        const Differenzwert = Minuend - Subtrahend;
+
+        this.previousOutput = this.currentOutput;
+        this.currentOutput = Differenzwert.toString();
+        this.inputs = [];
     }
+
 
 }
 
@@ -64,6 +102,9 @@ const current        = '';
 
 if (!output || !previousOutput) {
     console.error('Ausgabe nicht definiert');
+    console.time('fetsching data');
+
+    
 } else {
     buttons.forEach(button => {
         button.addEventListener('click', () => {
@@ -98,11 +139,14 @@ if (!output || !previousOutput) {
                 output.textContent = CalcuLATOR.getCurrentOutput();
                 // previousOutput.textContent = '';
             } else {
-                CalcuLATOR.append(buttonNAME);
-                output.textContent = CalcuLATOR.getCurrentOutput();
+                if (buttonNAME){
+                    CalcuLATOR.append(buttonNAME);
+                    output.textContent = CalcuLATOR.getCurrentOutput();
+                }
             }
 
             console.log(`Eingabe: ${buttonNAME}`);
+            console.timeEnd('fetsching data');
         });
     });
 }

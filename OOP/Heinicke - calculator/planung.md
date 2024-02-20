@@ -43,16 +43,6 @@ wir erstellen einen Calculator mit typescript
 
 ## querySelector
 
- export class QsOpperator {
-
-    // Query selectors für die Opperatoren
-    
-    const clearButton           = querySelector<HTMLButtonElement>('[data-clear]');
-    const deleteButton          = querySelector<HTMLButtonElement>('[data-delete]');
-    const divisionButton        = querySelector<HTMLButtonElement>('[data-operator="division"]');
-    const multiplicationButton  = querySelector<HTMLButtonElement>('[data-operator="multiplication"]');
-    const additionButton        = querySelector<HTMLButtonElement>('[data-operator="addition"]');
-    const substractionButton    = querySelector<HTMLButtonElement>('[data-operator="substraction"]');
-    const equalsButton          = querySelector<HTMLButtonElement>('[data-equals]');
-    
-}
+-   sobald ein Opperator angeklickt wurde soll die Eingabe in ein
+    String gespeichert werden
+-   der string wird mit der methode zum Beispiel Multiplication aufgerufen
