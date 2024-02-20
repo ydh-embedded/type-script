@@ -30,6 +30,6 @@
     "allowUnreachableCode": true,                     /* Disable error reporting for unreachable code. */
     "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
   },
-    "include": ["**/**/*.ts"],
+    "include": ["*/**/*.ts"],
     "exclude": [".vscode", "node_modules"]
 }
