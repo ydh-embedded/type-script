@@ -2,7 +2,7 @@ class Calculator {
 
     private currentOutput:string;
     private previousOutput:string;
-    private inputs:         string[] = [];
+    private inputs:string[] = [];
     private operation: string;
 
     constructor() {
@@ -14,7 +14,7 @@ class Calculator {
 
 
   
-    private performOperation
+    private performOperation                                                                                    // NOTE: case-Schleife für die Rechen-Operationen
     (oPERATOR:string, firstNUMBER:number, secondNUMBER:number):number
      {
       switch (oPERATOR) {
@@ -31,7 +31,6 @@ class Calculator {
       }
      }
 
-  
     public clear():void {
 
       this.currentOutput = '';
@@ -63,7 +62,7 @@ class Calculator {
       this.previousOutput = '';
     }
   
-    public addNumber(number:string):void {
+    public addNumber(number:string):void {                                                                  //NOTE: current Number + Operator
       if (this.operation === '') {
         this.currentOutput += number;
       } else {
@@ -82,18 +81,18 @@ class Calculator {
     }
 
     private isValidInput(input:string):boolean {
-        const regex = /^[1-9][0-9]*$/;                                          // ReGeX Validierung für ganze Zahlen
+        const regex = /^[1-9][0-9]*$/;                                                                          // NOTE: ReGeX Validierung für ganze Zahlen
         return regex.test(input);
     }
   }
   
-  const calculator = new Calculator();
+  const calculator      = new Calculator();
   
-  const buttons = document.querySelectorAll('button');
-  const output = document.querySelector('[data-current-output]') as HTMLElement;
-  const previousOutput = document.querySelector('[data-previous-output]') as HTMLElement;
+  const buttons         = document.querySelectorAll('button');
+  const output          = document.querySelector('[data-current-output]') as HTMLElement;
+  const previousOutput  = document.querySelector('[data-previous-output]') as HTMLElement;
   
-  function updateDisplay() {
+  function updateDisplay() {                                                                                    //NOTE: function updateDisplay
     const currentOutput = document.querySelector('.current-output') as HTMLElement;
     const previousOutput = document.querySelector('.previous-output') as HTMLElement;
   
@@ -106,17 +105,17 @@ class Calculator {
     currentOutput.textContent = calculator.getCurrentOutput() as string;
   }
   
-  buttons.forEach(button => {
+  buttons.forEach(button => {                                                                               // NOTE: On-Click
 
     button.addEventListener('click', () => {
       const buttonId = button.id;
       const buttonText = button.textContent;
   
-      if (buttonId === 'clear') {
+      if (buttonId === 'clear') {                                                                           // NOTE: Clear Button
         calculator.clear();
         output.textContent = '';
 
-      } else if (buttonId === 'delete') {
+      } else if (buttonId === 'delete') {                                                                   // NOTE: Delete Button
         calculator.delete();
         output.textContent = calculator.getCurrentOutput();
 
