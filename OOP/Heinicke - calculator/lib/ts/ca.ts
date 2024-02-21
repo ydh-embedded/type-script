@@ -16,10 +16,13 @@ class Calculator {
   public delete(): void {
     this.currentOutput = this.currentOutput.slice(0, -1);
   }
-
   public append(value: string): void {
     if (this.isValidInput(value)) {
-      this.currentOutput += value;
+      if (this.operation !== '') {
+        this.previousOutput += this.currentOutput + this.operation;
+      }
+      this.currentOutput = value;
+      this.operation = '';
     }
   }
 
@@ -34,7 +37,7 @@ class Calculator {
       case 'division':
         return firstNUMBER / secondNUMBER;
       default:
-        throw new Error(`Invalid input: ${oPERATOR}`);
+        throw new Error(`Keine Eingabe: ${oPERATOR}`);
     }
   }
 
@@ -107,7 +110,7 @@ buttons.forEach((button) => {
       calculator.delete();
       output.textContent = calculator.getCurrentOutput();
 
-    } else if (buttonId.startsWith('operator')) {
+    } else if (buttonId.startsWith('oPERATOR')) {
       calculator.operation = buttonId.slice(8);
       calculator.addNumber(buttonText as string);
       calculator.calculate();
@@ -122,7 +125,7 @@ buttons.forEach((button) => {
       output.textContent = calculator.getCurrentOutput()?.toString() || '';
     }
 
-    console.log("Operator wurde gedrückt:", calculator);
+    console.log("Eingabe:", calculator);
   });
 });
 
