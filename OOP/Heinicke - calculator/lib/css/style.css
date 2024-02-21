@@ -71,7 +71,7 @@ body {
 button {
     background-color: var(--primary-color);
     border: none;
-    color: var(--primary-color-text);
+    color: var(--secondary-color-text);
     font-size: 1rem;
     padding: 0.5rem 1rem;
     margin: 0.5rem;
@@ -82,7 +82,7 @@ button {
 .input-button {
     background-color: var(--primary-color);
     border: none;
-    color: var(--primary-color-text);
+    color: var(--secondary-color-text);
     font-size: 1rem;
     padding: 0.5rem 1rem;
     margin: 0.5rem;
@@ -95,30 +95,30 @@ button:hover {
     background-color: var(--primary-color-hover);
 }
 .input-button:hover {
-    background-color: var(--primary-color-hover);
+    background-color: var(--secondary-color-hover);
 }
 
 button:focus {
     outline: none;
-    box-shadow: var(--primary-color-focus-box-shadow);
+    box-shadow: var(--secondary-color-focus-box-shadow);
 }
 .input-button:focus {
     outline: none;
-    box-shadow: var(--primary-color-focus-box-shadow);
+    box-shadow: var(--secondary-color-focus-box-shadow);
 }
 
 button:hover:focus {
-    box-shadow: var(--primary-color-focus-box-shadow-hover);
+    box-shadow: var(--secondary-color-focus-box-shadow-hover);
 }
 .input-button:hover:focus {
-    box-shadow: var(--primary-color-focus-box-shadow-hover);
+    box-shadow: var(--secondary-color-focus-box-shadow-hover);
 }
 
 button:focus:hover {
-    box-shadow: var(--primary-color-focus-box-shadow-focus);
+    box-shadow: var(--secondary-color-focus-box-shadow-focus);
 }
 .input-button:focus:hover {
-    box-shadow: var(--primary-color-focus-box-shadow-focus);
+    box-shadow: var(--secondary-color-focus-box-shadow-focus);
 }
 button > btn-primary {
     display: flex;

@@ -4,8 +4,8 @@ class Calculator {
   public oPERATOR: string;
 
   constructor() {
-    this.currentOutput = '';
-    this.previousOutput = '0';
+    this.currentOutput = '0';
+    this.previousOutput = '';
     this.oPERATOR = '';
   }
 
@@ -109,11 +109,11 @@ buttons.forEach((button) => {
 
     } else if (buttonId.startsWith('oPERATOR')) {
       calculator.oPERATOR = buttonId.slice(8);
-      calculator.calculate();                                                     // NOTE Add this line to call the calculate method
+      calculator.calculate();
       calculator.addNumber(buttonText as string);
       updateDisplay();
       console.log("Operator:", calculator.oPERATOR);
-    
+
     } else if (buttonId === 'equal') {
       calculator.calculate();
       updateDisplay();
@@ -122,6 +122,7 @@ buttons.forEach((button) => {
       calculator.append(buttonText as string);
       output.textContent = calculator.getCurrentOutput()?.toString() || '';
     }
+
 
     console.log("Eingabe:", calculator);
   });
