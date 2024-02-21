@@ -1,8 +1,9 @@
 .calculator-grid {
     border-radius: 7px;
     padding: 10px;
+    
     display: grid;
-    align-content: center;
+    align-content: stretch;
     justify-content: center;
     min-height: 100vh;
     grid-template-columns: repeat(4, 6.3rem);
@@ -21,17 +22,19 @@
   }
   
   .output {
-    border: 1.5px solid #202d3a;
+    border: 1.5px solid #18222c;
     border-radius: 7px;
     width: 96% ;
     margin: 7px ;
     grid-column:1/-1;
     background-color: #22303d;
+
     display: flex;
     align-items: flex-end;
     justify-content: space-around;
     flex-direction: column;
     padding: 22px;
+    
     word-wrap: break-word;
     word-break: break-all;
   }
