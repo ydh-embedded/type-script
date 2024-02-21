@@ -1,7 +1,7 @@
 class Calculator {
 
-    private currentOutput:  string;
-    private previousOutput: string;
+    public currentOutput:  string;
+    public previousOutput: string;
 /*  private inputs:string[] = [];    */
     public operation:      string;
 
@@ -29,7 +29,7 @@ class Calculator {
     
 
   
-      
+
     private performOperation                                                                                    // NOTE: case-Schleife für die Rechen-Operationen
     (oPERATOR:string, firstNUMBER:number, secondNUMBER:number):number
      {
