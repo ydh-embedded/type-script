@@ -47,14 +47,14 @@ class Calculator {
       }
      }
 
-    public clear():void {
+    public clear() {
 
       this.currentOutput = '';
       this.previousOutput = '';
 
     }
 
-    public calculate():void {
+    public calculate() {
       const firstNUMBER = parseFloat(this.previousOutput);
       const secondNUMBER = parseFloat(this.currentOutput);
   
@@ -66,7 +66,7 @@ class Calculator {
       this.previousOutput = '';
     }
   
-    public addNumber(number:string):void {                                                                  //NOTE: current Number + Operator
+    public addNumber(number:string) {                                                                  //NOTE: current Number + Operator
       if (this.operation === '') {
         this.currentOutput += number;
       } else {
