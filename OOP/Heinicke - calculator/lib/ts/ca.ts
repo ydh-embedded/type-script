@@ -16,13 +16,10 @@ class Calculator {
   public delete(): void {
     this.currentOutput = this.currentOutput.slice(0, -1);
   }
+
   public append(value: string): void {
     if (this.isValidInput(value)) {
-      if (this.operation !== '') {
-        this.previousOutput += this.currentOutput + this.operation;
-      }
-      this.currentOutput = value;
-      this.operation = '';
+      this.currentOutput += value;
     }
   }
 
