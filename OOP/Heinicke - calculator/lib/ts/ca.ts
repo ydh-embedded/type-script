@@ -50,7 +50,7 @@ class Calculator {
     public clear() {
 
       this.currentOutput = '';
-      this.previousOutput = '';
+      this.previousOutput = '0';
 
     }
 
@@ -66,9 +66,13 @@ class Calculator {
       this.previousOutput = '';
     }
   
-    public addNumber(number:string) {                                                                  //NOTE: current Number + Operator
+    public addNumber(number: string) {
       if (this.operation === '') {
-        this.currentOutput += number;
+        if (this.currentOutput === '0' || this.currentOutput === 'current-output') {
+          this.currentOutput = number;
+        } else {
+          this.currentOutput += number;
+        }
       } else {
         this.previousOutput += this.currentOutput + this.operation;
         this.currentOutput = number;
