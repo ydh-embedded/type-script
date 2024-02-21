@@ -30,7 +30,7 @@ class Calculator {
 
   
 
-    private performOperation                                                                                    // NOTE: case-Schleife für die Rechen-Operationen
+    public performOperation                                                                                    // NOTE: case-Schleife für die Rechen-Operationen
     (oPERATOR:string, firstNUMBER:number, secondNUMBER:number):number
      {
       switch (oPERATOR) {
@@ -82,15 +82,18 @@ class Calculator {
   
     public getCurrentOutput():string {
       return this.currentOutput;
+      console.log("🚀 ~ Calculator ~ getCurrentOutput ~ this.currentOutput:", this.currentOutput)
     }
   
     public getPreviousOutput():string {
       return this.previousOutput;
+      console.log("🚀 ~ Calculator ~ getPreviousOutput ~ this.previousOutput:", this.previousOutput)
     }
 
     private isValidInput(input:string):boolean {
         const regex = /^[1-9][0-9]*$/;                                                                          // NOTE: ReGeX Validierung für ganze Zahlen
         return regex.test(input);
+        console.log("🚀 ~ Calculator ~ isValidInput ~ regex.test(input):", regex.test(input))
     }
   }
   
@@ -107,6 +110,7 @@ function updateDisplay() {                                                      
 
 buttons.forEach((button) => {                                                                                   // NOTE: On-Click
   button.addEventListener('click', () => {
+
     const buttonId = button.id;
     const buttonText = button.textContent;
 
@@ -132,6 +136,8 @@ buttons.forEach((button) => {                                                   
       calculator.append(buttonText as string);
       output.textContent = calculator.getCurrentOutput()?.toString() || '';
     }
+      console.log("🚀 ~ Opperator wurde gedrückt:", calculator.calculate())
+    
   });
 });
 
