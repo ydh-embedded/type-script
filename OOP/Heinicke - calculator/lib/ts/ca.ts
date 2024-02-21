@@ -112,6 +112,7 @@ buttons.forEach((button) => {
       calculator.addNumber(buttonText as string);
       calculator.calculate();
       updateDisplay();
+      console.log("Operator:", calculator.oPERATOR); // Add this line to display the operator
 
     } else if (buttonId === 'equal') {
       calculator.calculate();
