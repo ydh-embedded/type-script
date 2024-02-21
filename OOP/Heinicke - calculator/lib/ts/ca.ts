@@ -83,10 +83,10 @@ class Calculator {
   }
 }
 
-const calculator = new Calculator();
+const calculator  = new Calculator();
 
-const buttons = document.querySelectorAll('button');
-const output = document.querySelector('[data-current-output]') as HTMLElement;
+const buttons      = document.querySelectorAll('button');
+const output        = document.querySelector('[data-current-output]') as HTMLElement;
 const previousOutput = document.querySelector('[data-previous-output]') as HTMLElement;
 
 function updateDisplay() {
