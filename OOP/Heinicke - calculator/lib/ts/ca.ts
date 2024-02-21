@@ -57,7 +57,7 @@ class Calculator {
 
   public addNumber(number: string) {
     if (this.operation === '') {
-      if (this.currentOutput === '0' || this.currentOutput === 'current-output') {
+      if (this.currentOutput === '0' || this.currentOutput === '') {
         this.currentOutput = number;
       } else {
         this.currentOutput += number;
