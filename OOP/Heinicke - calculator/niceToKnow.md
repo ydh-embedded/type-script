@@ -15,3 +15,6 @@
         dann weisen wir ein leere Zeichenkette zu 
 - BUG:**' Property 'operation' is private and only accessible within class 'Calculator''**
     -   operation als public definiert
+- BUG: **'Uncaught error at Calculator.performOperation (ca.js:30:23)'**
+    -   Die calculate-Methode wird nicht korrekt aufgerufen.
+    -   Die calculate-Methode sollte erst aufgerufen werden, wenn die Eigenschaft für oPERATOR festgelegt wurde

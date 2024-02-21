@@ -109,11 +109,11 @@ buttons.forEach((button) => {
 
     } else if (buttonId.startsWith('oPERATOR')) {
       calculator.oPERATOR = buttonId.slice(8);
+      calculator.calculate();                                                     // NOTE Add this line to call the calculate method
       calculator.addNumber(buttonText as string);
-      calculator.calculate();
       updateDisplay();
-      console.log("Operator:", calculator.oPERATOR); // Add this line to display the operator
-
+      console.log("Operator:", calculator.oPERATOR);
+    
     } else if (buttonId === 'equal') {
       calculator.calculate();
       updateDisplay();
