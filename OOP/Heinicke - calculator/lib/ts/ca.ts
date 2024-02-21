@@ -6,8 +6,8 @@ class Calculator {
     public operation:      string;
 
     constructor() {
-      this.currentOutput = '0';
-      this.previousOutput = '';
+      this.currentOutput = '';
+      this.previousOutput = '0';
       this.operation = '';
     }
 
