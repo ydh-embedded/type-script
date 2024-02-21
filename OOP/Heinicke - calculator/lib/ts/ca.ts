@@ -1,16 +1,16 @@
 class Calculator {
   public currentOutput: string;
   public previousOutput: string;
-  public operation: string;
+  public oPERATOR: string;
 
   constructor() {
     this.currentOutput = '';
     this.previousOutput = '0';
-    this.operation = '';
+    this.oPERATOR = '';
   }
 
   public getOperation(): string {
-    return this.operation;
+    return this.oPERATOR;
   }
 
   public delete(): void {
@@ -51,21 +51,21 @@ class Calculator {
       return;
     }
 
-    this.currentOutput = this.performOperation(this.operation, firstNUMBER, secondNUMBER).toString();
+    this.currentOutput = this.performOperation(this.oPERATOR, firstNUMBER, secondNUMBER).toString();
     this.previousOutput = '';
   }
 
   public addNumber(number: string) {
-    if (this.operation === '') {
+    if (this.oPERATOR === '') {
       if (this.currentOutput === '0' || this.currentOutput === '') {
         this.currentOutput = number;
       } else {
         this.currentOutput += number;
       }
     } else {
-      this.previousOutput += this.currentOutput + this.operation;
+      this.previousOutput += this.currentOutput + this.oPERATOR;
       this.currentOutput = number;
-      this.operation = '';
+      this.oPERATOR = '';
     }
   }
 
@@ -108,7 +108,7 @@ buttons.forEach((button) => {
       output.textContent = calculator.getCurrentOutput();
 
     } else if (buttonId.startsWith('oPERATOR')) {
-      calculator.operation = buttonId.slice(8);
+      calculator.oPERATOR = buttonId.slice(8);
       calculator.addNumber(buttonText as string);
       calculator.calculate();
       updateDisplay();
