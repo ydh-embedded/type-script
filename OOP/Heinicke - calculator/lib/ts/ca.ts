@@ -95,45 +95,41 @@ class Calculator {
   const buttons         = document.querySelectorAll('button');
   const output          = document.querySelector('[data-current-output]') as HTMLElement;
   const previousOutput  = document.querySelector('[data-previous-output]') as HTMLElement;
-  
-  function updateDisplay() {                                                                                    //NOTE: function updateDisplay
-    const currentOutput = document.querySelector('.current-output') as HTMLElement;
-    const previousOutput = document.querySelector('.previous-output') as HTMLElement;
-  
-    if (calculator.getPreviousOutput()) {
-      previousOutput.textContent = calculator.getPreviousOutput() as string;
+
+function updateDisplay() {                                                                                      //NOTE: function updateDisplay
+  output.textContent = calculator.getCurrentOutput() as string;
+  previousOutput.textContent = calculator.getPreviousOutput() as string;
+}
+
+buttons.forEach((button) => {                                                                                   // NOTE: On-Click
+  button.addEventListener('click', () => {
+    const buttonId = button.id;
+    const buttonText = button.textContent;
+
+    if (buttonId === 'clear') {
+      calculator.clear();
+      output.textContent = '';
+
+    } else if (buttonId === 'delete') {
+      calculator.delete();
+      output.textContent = calculator.getCurrentOutput();
+
+    } else if (buttonId.startsWith('operator')) {
+      calculator.operation = buttonId.slice(8);
+      calculator.addNumber(buttonText as string);
+      calculator.calculate();
+      updateDisplay();
+
+    } else if (buttonId === 'equal') {
+      calculator.calculate();
+      updateDisplay();
+
     } else {
-      previousOutput.textContent = '';
+      calculator.append(buttonText as string);
+      output.textContent = calculator.getCurrentOutput()?.toString() || '';
     }
-  
-    currentOutput.textContent = calculator.getCurrentOutput() as string;
-  }
-  
-  buttons.forEach(button => {                                                                               // NOTE: On-Click
+  });
+});
 
-    button.addEventListener('click', () => {
-      const buttonId = button.id;
-      const buttonText = button.textContent;
-  
-      if (buttonId === 'clear') {                                                                           // NOTE: Clear Button
-        calculator.clear();
-        output.textContent = '';
-
-      } else if (buttonId === 'delete') {                                                                   // NOTE: Delete Button
-        calculator.delete();
-        output.textContent = calculator.getCurrentOutput();
-
-      } else if (buttonId.startsWith('oPERATOR')) {
-        calculator.operation = buttonId.slice(8); 
-        calculator.addNumber(buttonText as string);
-        calculator.calculate();
-        output.textContent = calculator.getCurrentOutput();
-
-      } else if (buttonId === 'equal') {
-        calculator.calculate();
-      } else {
-        calculator.append(buttonText as string);
-        output.textContent = calculator.getCurrentOutput()?.toString() || '';
-      }
-    })
-})
+// Initial display update
+updateDisplay();
