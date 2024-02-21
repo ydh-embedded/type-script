@@ -4,6 +4,7 @@
     --primary-color-hover:                  #16a085;
     --primary-color-focus:                  #007b6e;
     --primary-color-text:                   #b4fff0de ;
+    --primary-color-text-dark:                   #3c5751de ;
     --primary-color-focus-border:           #16a085;
     --primary-color-focus-border-width:         3px;
     --primary-color-focus-border-radius:        50%;
@@ -16,6 +17,7 @@
     --secondary-color-hover:                  #ff9086;
     --secondary-color-focus:                  #fd5a4b;
     --secondary-color-text:                   #ffaba3cb ;
+    --secondary-color-text-dark:                   #5c3e3bcb ;
     --secondary-color-focus-border:           #fd5b4d;
     --secondary-color-focus-border-width:         3px;
     --secondary-color-focus-border-radius:        50%;
