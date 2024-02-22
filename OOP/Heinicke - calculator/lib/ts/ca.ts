@@ -23,49 +23,54 @@ class Calculator {
     }
   }
 
-  private performOperation(oPERATOR: string, firstNUMBER: number, secondNUMBER: number): number {
+  public performOperation(oPERATOR: string, firstNUMBER: number, secondNUMBER: number) {
     switch (oPERATOR) {
-      case 'addition':
-        return firstNUMBER + secondNUMBER;
-      case 'subtraction':
-        return firstNUMBER - secondNUMBER;
-      case 'multiplication':
-        return firstNUMBER * secondNUMBER;
-      case 'division':
-        return firstNUMBER / secondNUMBER;
+      case '+':
+        this.currentOutput = (firstNUMBER + secondNUMBER).toString();
+        break
+      case '-':
+        this.currentOutput = (firstNUMBER - secondNUMBER).toString();
+        break
+      case '*':
+        this.currentOutput = (firstNUMBER * secondNUMBER).toString();
+        break
+      case '/':
+        this.currentOutput = (firstNUMBER / secondNUMBER).toString();
+        break
       default:
-        throw new Error(`Keine Eingabe: ${oPERATOR}`);
+        return;
+      console.log();
     }
   }
 
   public clear() {
     this.currentOutput = '';
-    this.previousOutput = '0';
+    this.previousOutput = '';
   }
 
   public calculate() {
-    const firstNUMBER = parseFloat(this.previousOutput);
-    const secondNUMBER = parseFloat(this.currentOutput);
+    let firstNUMBER = parseFloat(this.previousOutput);
+    let secondNUMBER = parseFloat(this.currentOutput);
 
     if (isNaN(firstNUMBER) || isNaN(secondNUMBER)) {
       return;
     }
 
-    this.currentOutput = this.performOperation(this.oPERATOR, firstNUMBER, secondNUMBER).toString();
-    this.previousOutput = '';
+    this.performOperation(this.oPERATOR, firstNUMBER, secondNUMBER);
+    this.previousOutput = `${firstNUMBER} ${this.oPERATOR} ${secondNUMBER} =`;
   }
 
   public addNumber(number: string) {
     if (this.oPERATOR === '') {
-      if (this.currentOutput === '0' || this.currentOutput === '') {
+      if (this.currentOutput === '0') {
         this.currentOutput = number;
       } else {
         this.currentOutput += number;
       }
     } else {
-      this.previousOutput += this.currentOutput + this.oPERATOR;
+      this.previousOutput = this.currentOutput;
       this.currentOutput = number;
-      this.oPERATOR = '';
+      //this.oPERATOR = '';
     }
   }
 
@@ -88,6 +93,7 @@ const calculator  = new Calculator();
 const buttons      = document.querySelectorAll('button');
 const output        = document.querySelector('[data-current-output]') as HTMLElement;
 const previousOutput = document.querySelector('[data-previous-output]') as HTMLElement;
+const oPERATOR = document.querySelectorAll('[data-operation]');
 
 function updateDisplay() {
   output.textContent = calculator.getCurrentOutput() as string;
@@ -107,8 +113,8 @@ buttons.forEach((button) => {
       calculator.delete();
       output.textContent = calculator.getCurrentOutput();
 
-    } else if (buttonId.startsWith('oPERATOR')) {
-      calculator.oPERATOR = buttonId.slice(8);
+    } else if (button.dataset['operation']) {
+      calculator.oPERATOR = button.textContent;
       calculator.calculate();
       calculator.addNumber(buttonText as string);
       updateDisplay();
